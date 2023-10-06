@@ -26,11 +26,11 @@ jobs:
         docker push 328927860119.dkr.ecr.us-east-1.amazonaws.com/serverless-cicd:latest
 
     - name: Create Image Definitions JSON File
-      run: echo '[{"name": "serverless-web", "imageUri":"328927860119.dkr.ecr.us-east-1.amazonaws.com/serverless-cicd:latest"}]' > imagedefinitions.json
+      run: | 
+        '[{"name": "serverless-web", "imageUri":"328927860119.dkr.ecr.us-east-1.amazonaws.com/serverless-cicd:latest"}]' > imagedefinitions.json
 
     - name: Upload Image Definitions as Artifact
       uses: actions/upload-artifact@v2
       with:
         name: imagedefinitions
         path: imagedefinitions.json
-
